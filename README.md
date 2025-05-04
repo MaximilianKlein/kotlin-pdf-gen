@@ -19,7 +19,7 @@ The following table compares the key features supported by each PDF generation l
 
 Legend:
 - ✅: Fully supported
-- ❌: Not supported supported
+- ❌: Not supported
 - ✅/❌: Somewhat supported
 - ⭐: Level of support (1-4 stars)
 

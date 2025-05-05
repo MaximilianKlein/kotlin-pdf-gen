@@ -14,7 +14,7 @@ The following table compares the key features supported by each PDF generation l
 | Margin texts | ✅ | ✅ | ✅ |
 | Pagedependent layouts | ❌ | ✅ | ✅ |
 | Hyphenation | ✅ | ✅/❌ | ✅ |
-| Justified text | ✅ | ❌ | ✅ |
+| Justified text | ✅ | ✅/❌ | ✅ |
 | Customizability | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
 
 Legend:

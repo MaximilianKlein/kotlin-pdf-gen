@@ -1,6 +1,7 @@
 import com.lowagie.text.*
 import com.lowagie.text.pdf.PdfWriter
 import com.lowagie.text.pdf.HyphenationAuto
+import com.lowagie.text.pdf.MultiColumnText
 import java.awt.Desktop
 import java.io.File
 import java.io.FileOutputStream
@@ -22,8 +23,32 @@ object OpenPdf {
             PdfWriter.getInstance(document, out)
             document.open()
 
-            document.add(Paragraph("Dokument mit Seitenrandnotizen"))
-            document.add(Paragraph(longText))
+            // Add title with formatting
+            val titleFont = Font(Font.HELVETICA, 24f, Font.BOLD)
+            val title = Paragraph("Dokument mit/ohne Seitenrandnotizen", titleFont)
+            title.alignment = Element.ALIGN_CENTER
+            title.spacingAfter = 20f
+            document.add(title)
+
+            // Create multi-column layout
+            val multiColumnText = MultiColumnText()
+            val left = document.left()
+            val right = document.right()
+            val gutter = 10f // Space between columns
+            val numColumns = 2
+            multiColumnText.addRegularColumns(left, right, gutter, numColumns)
+
+            // Create paragraph with hyphenation
+            val chunk = Chunk(longText)
+            chunk.hyphenation = HyphenationAuto("de", "DR", 2, 2)
+
+            val paragraph = Paragraph(chunk)
+
+            // Add content to columns
+            multiColumnText.addElement(paragraph)
+            
+            // Add the multi-column text to the document
+            document.add(multiColumnText)
 
             document.close()
         }

@@ -113,3 +113,8 @@ java -jar build/libs/pdf-generator.jar openpdf --no-open
 - OpenPDF (for programmatic PDF generation)
 - iText 7 (for programmatic PDF generation)
 - Kotlin standard library 
+
+## Typst Example
+- Install Typst
+- Navigate to `./typst`
+- Run `typst compile <file>`
